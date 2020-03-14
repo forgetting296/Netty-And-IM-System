@@ -32,6 +32,12 @@
         </dependency>
 
         <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
@@ -93,7 +99,8 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
 
-            <!--添加编译proto文件的编译程序和对应的编译插件-->
+            <!--添加编译proto文件的编译程序和对应的编译插件 ubuntu系统中正常  但是在windows中报错  也可能是网络或其他问题  待排查-->
+            <!--已解决-->
             <plugin>
                 <groupId>org.xolstice.maven.plugins</groupId>
                 <artifactId>protobuf-maven-plugin</artifactId>
@@ -112,6 +119,32 @@
                     </execution>
                 </executions>
             </plugin>
+            <!--<plugin>
+                <groupId>org.xolstice.maven.plugins</groupId>
+                <artifactId>protobuf-maven-plugin</artifactId>
+                <version>0.5.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    &lt;!&ndash;proto文件路径&ndash;&gt;
+                    <protoSourceRoot>${project.basedir}/protobuf</protoSourceRoot>
+                    &lt;!&ndash;目标路径&ndash;&gt;
+                    <outputDirectory>${project.build.sourceDirectory}</outputDirectory>
+                    &lt;!&ndash;设置是否在生成java文件之前清空outputDirectory的文件&ndash;&gt;
+                    <clearOutputDirectory>false</clearOutputDirectory>
+                    &lt;!&ndash;临时目录&ndash;&gt;
+                    <temporaryProtoFileDirectory>${project.build.directory}/protoc-temp</temporaryProtoFileDirectory>
+                    &lt;!&ndash;protoc 可执行文件路径&ndash;&gt;
+                    <protocExecutable>${project.basedir}/protobuf/protoc3.6.1.exe</protocExecutable>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>test-compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>-->
         </plugins>
 
         <extensions>

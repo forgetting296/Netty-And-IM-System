@@ -7,3 +7,8 @@ message Msg {
     uint32 id = 1;
     string content = 2;
 }
+message Msg2 {
+    uint32 id = 2;
+    string header = 3;
+    string content = 1;
+}
