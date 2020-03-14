@@ -1,0 +1,9 @@
+syntax = "proto3";//请在非空非注释的第一行指定当前文件使用的是proto3的语法,默认proto2
+package com.shusaku.study.protocol;//package与java_package有些不同，java_package是定义编译生成的java文件所在的目录，而package是对应的java类的命名空间
+option java_package = "com.shusaku.study.protocol";
+option java_outer_classname = "MsgProtos";//要生成Java类的名称
+option java_multiple_files = true;//编译后会生成多个Message类，并没有被包含在MsgProtos.java文件中,反之,生成单一MsgProtos.java文件  不加这条配置　不能直接使用Msg 只能使用MsgProto.Msg　加上之后就两个类就没有关系了
+message Msg {
+    uint32 id = 1;
+    string content = 2;
+}
