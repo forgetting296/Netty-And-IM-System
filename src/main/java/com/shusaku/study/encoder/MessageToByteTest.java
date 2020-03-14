@@ -4,6 +4,7 @@ import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.ChannelInboundHandler;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.embedded.EmbeddedChannel;
 import io.netty.handler.codec.ByteToMessageDecoder;
@@ -60,7 +61,7 @@ class OutBoundTest extends MessageToByteEncoder<Integer> {
     }
 }
 
-class InBoundTest extends ByteToMessageDecoder {
+class InBoundTest extends ByteToMessageDecoder implements ChannelInboundHandler {
 
     @Override
     protected void decode(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf, List<Object> list) throws Exception {

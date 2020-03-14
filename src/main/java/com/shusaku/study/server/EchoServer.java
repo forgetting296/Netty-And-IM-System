@@ -32,8 +32,9 @@ public class EchoServer {
             b.group(bossLoop,workLoop);
             b.localAddress(port);
             b.channel(NioServerSocketChannel.class);
-            b.option(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT);
             b.option(ChannelOption.SO_KEEPALIVE, true);
+            b.option(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT);
+
 
             b.childHandler(new ChannelInitializer<SocketChannel>() {
                 @Override
@@ -44,7 +45,7 @@ public class EchoServer {
 
             ChannelFuture future = b.bind().sync();
 
-            ChannelFuture close = future.channel().close();
+            ChannelFuture close = future.channel().closeFuture();
 
             close.sync();
 

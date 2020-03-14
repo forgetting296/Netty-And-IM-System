@@ -4,6 +4,7 @@ import io.netty.buffer.ByteBuf;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelOutboundHandler;
 import io.netty.channel.embedded.EmbeddedChannel;
 import io.netty.handler.codec.MessageToByteEncoder;
 import io.netty.handler.codec.MessageToMessageEncoder;
@@ -66,7 +67,7 @@ class String2Integer extends MessageToMessageEncoder<String> {
     }
 }
 
-class Integer2Byte extends MessageToByteEncoder<Integer> {
+class Integer2Byte extends MessageToByteEncoder<Integer> implements ChannelOutboundHandler {
 
     @Override
     protected void encode(ChannelHandlerContext channelHandlerContext, Integer integer, ByteBuf byteBuf) throws Exception {
