@@ -1,6 +1,8 @@
-package com.shusaku.common;
+package com.shusaku.common.codec;
 
+import com.shusaku.common.ProtoInstant;
 import com.shusaku.common.bean.msg.ProtoMsg;
+import com.shusaku.common.exception.InvalidFrameException;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;

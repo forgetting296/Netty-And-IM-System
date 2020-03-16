@@ -1,4 +1,4 @@
-package com.shusaku.common;
+package com.shusaku.common.exception;
 
 public class InvalidFrameException extends Exception {
 
